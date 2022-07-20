@@ -1,22 +1,20 @@
-const main =async ()=>{
-  const Transaction = await hre.ethers.getContractFactory("Transaction");
-  const transactions=await Transaction.deploy();
+const main = async () => {
+  const transactionsFactory = await hre.ethers.getContractFactory("Transactions");
+  const transactionsContract = await transactionsFactory.deploy();
 
-  await transactions.deploy();
+  await transactionsContract.deployed();
 
-  console.log("Transaction deployed to : ", transactions.address);
+  console.log("Transactions address: ", transactionsContract.address);
+};
 
-}
-
-const runMain=async()=>{
-  try{
+const runMain = async () => {
+  try {
     await main();
     process.exit(0);
-
-  }catch(error){
+  } catch (error) {
     console.error(error);
     process.exit(1);
   }
+};
 
-  
-}
+runMain();
