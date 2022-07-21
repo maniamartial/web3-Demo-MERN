@@ -57,7 +57,7 @@ export const TransactionProvider=({ children })=>{
               method: "eth_sendTransaction",
               params: [{
                 from: currentAccount,
-                to: '0xE603464C27dE1D3958797fcb4d8c0ef533e4E739',
+                to: addressTo,
                 gas: "0x5208",
                 value: parsedAmount._hex,
               }],
